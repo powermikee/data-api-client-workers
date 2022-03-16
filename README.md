@@ -6,7 +6,7 @@
 
 ## Why the fork?
 
-This is an forked version of Jeremy Daly's awesome Data API Client that adds support for Cloudflare Workers. 
+This is a forked version of Jeremy Daly's awesome Data API Client that adds support for Cloudflare Workers. 
 
 Unfortunately since aws-sdk doesn't work in a workers environment, the original client will also not work.
 
