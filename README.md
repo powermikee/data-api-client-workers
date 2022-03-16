@@ -1,4 +1,4 @@
-Data API CLient For Cloudflare Workers
+# Data API CLient For Cloudflare Workers
 
 [![Build Status](https://travis-ci.org/jeremydaly/data-api-client.svg?branch=master)](https://travis-ci.org/jeremydaly/data-api-client)
 [![npm](https://img.shields.io/npm/v/data-api-client.svg)](https://www.npmjs.com/package/data-api-client)
