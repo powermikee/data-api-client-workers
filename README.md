@@ -25,8 +25,8 @@ For more information about the Aurora Serverless Data API, you can review the [o
 The **Data API Client** makes working with the Aurora Serverless Data API super simple. Require and instantiate the library with basic configuration information, then use the `query()` method to manage your workflows. Below are some examples.
 
 ```javascript
-// Require and instantiate data-api-client with secret and cluster
-const data = require('data-api-client')({
+// Require and instantiate data-api-client-workers with secret and cluster
+const data = require('data-api-client-workers')({
   secretArn: 'arn:aws:secretsmanager:us-east-1:XXXXXXXXXXXX:secret:mySecret',
   resourceArn: 'arn:aws:rds:us-east-1:XXXXXXXXXXXX:cluster:my-cluster-name',
   database: 'myDatabase' // default database
@@ -135,14 +135,14 @@ Not only are there no column names, but you have to pull the value from the data
 
 ## Installation and Setup
 ```
-npm i data-api-client
+npm i data-api-client-workers
 ```
 
 For more information on enabling Data API, see [Enabling Data API](#enabling-data-api).
 
 ## Configuration Options
 
-Below is a table containing all of the possible configuration options for the `data-api-client`. Additional details are provided throughout the documentation.
+Below is a table containing all of the possible configuration options for the `data-api-client-workers`. Additional details are provided throughout the documentation.
 
 | Property | Type | Description | Default |
 | -------- | ---- | ----------- | ------- |
@@ -168,8 +168,8 @@ The **Data API Client** wraps the [RDSDataService Class](https://docs.aws.amazon
 To use the Data API Client, require the module and instantiate it with your [Configuration options](#configuration-options). If you are using it with AWS Lambda, require it **OUTSIDE** your main handler function. This will allow you to reuse the initialized module on subsequent invocations.
 
 ```javascript
-// Require and instantiate data-api-client with secret and cluster arns
-const data = require('data-api-client')({
+// Require and instantiate data-api-client-workers with secret and cluster arns
+const data = require('data-api-client-workers')({
   secretArn: 'arn:aws:secretsmanager:us-east-1:XXXXXXXXXXXX:secret:mySecret',
   resourceArn: 'arn:aws:rds:us-east-1:XXXXXXXXXXXX:cluster:my-cluster-name',
   database: 'myDatabase' // set a default database
