@@ -12,7 +12,9 @@ Unfortunately since aws-sdk doesn't work in a workers environment, the original 
 
 Instead this change uses @aws-sdk/client-rds-data which means it allows it to work in nodeJs, browser, react native and cloudflare workers.
 
-I have submitted a PR to the original repo, but unfortunately it seems the project has gone stale. I will leave this repo here in case anyone else wants to use this in a worker.
+I've submitted a PR to the original repo, but unfortunately it seems the project has gone stale. I'll leave this repo here in case anyone else wants to use this in a worker.
+
+https://github.com/jeremydaly/data-api-client/pull/115
 
 ## Overview
 
