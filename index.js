@@ -386,7 +386,7 @@ const query = async function(config,..._args) {
     let command = (isBatch ? new AWS.BatchExecuteStatementCommand(params)
       : new AWS.ExecuteStatementCommand(params))
 
-    const result = await config.RDS.send(command);
+    const result = await config.RDS.send(command)
 
     // Format and return the results
     return formatResults(
@@ -403,7 +403,7 @@ const query = async function(config,..._args) {
         pick(params, ['resourceArn','secretArn','transactionId'])
       )
 
-      const rollback = await config.RDS.send(command);
+      const rollback = await config.RDS.send(command)
 
       this.rollback(e, rollback)
     }
@@ -463,7 +463,7 @@ const commit = async (config,queries,rollback) => {
     pick(config,['resourceArn','secretArn','database'])
   )
 
-  const { transactionId } = await config.RDS.send(command);
+  const { transactionId } = await config.RDS.send(command)
 
   // Add transactionId to the config
   let txConfig = Object.assign(config, { transactionId })
@@ -481,7 +481,7 @@ const commit = async (config,queries,rollback) => {
     pick(txConfig, ['resourceArn','secretArn','transactionId'])
   )
 
-  const { transactionStatus } = await config.RDS.send(transCommand);
+  const { transactionStatus } = await config.RDS.send(transCommand)
 
   // Add the transaction status to the results
   results.push({transactionStatus})
@@ -535,7 +535,7 @@ const init = params => {
     options.credentials = {
       accessKeyId: params.accessKeyId,
       secretAccessKey: params.secretAccessKey
-    };
+    }
   }
 
   // Set the configuration for this instance
@@ -598,35 +598,35 @@ const init = params => {
         mergeConfig(pick(config,['resourceArn','secretArn','database']),args)
       )
 
-      return config.RDS.send(command);
+      return config.RDS.send(command)
     },
     beginTransaction: (args) => {
       const command = new AWS.BeginTransactionCommand(
         mergeConfig(pick(config,['resourceArn','secretArn','database']),args)
       )
 
-      return config.RDS.send(command);
+      return config.RDS.send(command)
     },
     commitTransaction: (args) => {
       const command = new AWS.CommitTransactionCommand(
         mergeConfig(pick(config,['resourceArn','secretArn']),args)
       )
 
-      return config.RDS.send(command);
+      return config.RDS.send(command)
     },
     executeStatement: (args) => {
       const command = new AWS.ExecuteStatementCommand(
         mergeConfig(pick(config,['resourceArn','secretArn','database']),args)
       )
 
-      return config.RDS.send(command);
+      return config.RDS.send(command)
     },
     rollbackTransaction: (args) => {
       const command = new AWS.RollbackTransactionCommand(
         mergeConfig(pick(config,['resourceArn','secretArn']),args)
       )
 
-      return config.RDS.send(command);
+      return config.RDS.send(command)
     }
   }
 
